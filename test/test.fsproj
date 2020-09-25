@@ -2,7 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="../lib/Polynomial.fsproj">
+      <Name>Polynomial.fsproj</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
