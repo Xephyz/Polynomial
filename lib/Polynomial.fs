@@ -25,12 +25,9 @@ let rec add (p1: Poly) (p2: Poly): Poly =
     | (x :: xs, y :: ys) -> x + y :: add xs ys
     |> prune // <-- Part 3
 
-let rec mulC n (p: Poly): Poly =
-    // if n = 0 then [] else // <-- Part 3
-    match p with
-    | [] -> []
-    | x :: xs -> n * x :: mulC n xs
-    |> prune // <-- Part 3
+let mulC n (p: Poly): Poly =
+    List.map (fun x -> x*n) p
+    |> prune
 
 let rec sub (p1: Poly) (p2: Poly): Poly =
     match (p1, p2) with
