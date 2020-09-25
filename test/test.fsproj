@@ -9,7 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FsCheck" Version="2.14.3" />
