@@ -18,7 +18,7 @@ let main argv =
     printfn "eval 2 [2;3;0;1] = 16: %s\n" (string (Poly.eval 2 [2;3;0;1] = 16))
 
     printfn "Part 2 funcs:"
-    printfn "isLegal [2;5;0] = False: %s" (string (Poly.isLegal [2;5;0] = false))
+    printfn "isLegal [2;5;0] = False: %s" (string (not (Poly.isLegal [2;5;0])))
     printfn "isLegal [2;5;0;2] = True: %s" (string (Poly.isLegal [2;5;0;2]))
     printfn "prune [2;5;0] = [2;5]: %s" (string (Poly.prune [2;5;0] = [2;5]))
     printfn "prune [2;5;0;2] = [2;5;0;2]: %s" (string (Poly.prune [2;5;0;2] = [2;5;0;2]))

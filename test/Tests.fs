@@ -28,6 +28,11 @@ let identity op (idenP: Poly) (p: Poly) =
 let invAdditive (p: Poly) =
     add p (mulC -1 p) = zero
 
+let distributive1 (p1: Poly) (p2: Poly) (p3: Poly) =
+    mul p1 (add p2 p3) = add (mul p1 p2) (mul p1 p3)
+
+let distributive2 (p1: Poly) (p2: Poly) (p3: Poly) =
+    mul (add p1 p2) p3 = add (mul p1 p3) (mul p2 p3)
 
 [<Property>]
 let ``+ (Add) is associative`` () = associative add
@@ -43,3 +48,15 @@ let ``-p is the additive inverse of p`` () = invAdditive
 
 [<Property>]
 let ``* (mul) is associative`` () = associative mul
+
+[<Property>]
+let ``* (mul) is commutative`` () = commutative mul
+
+[<Property>]
+let ``one ([1]) is the multiplicative identity`` () = identity mul one
+
+[<Property>]
+let ``multiplication is distributive with respect to addition 1`` () = distributive1
+
+[<Property>]
+let ``multiplication is distributive with respect to addition 2`` () = distributive2
