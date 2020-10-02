@@ -30,11 +30,14 @@ let ``mulC preserves the invariant`` n (p: Poly) = isLegal (mulC n (prune p))
 let ``sub preserves the invariant`` () = invarianceTwoPolys sub
 
 [<Property>]
-let ``mulX preserves the invariant`` (p: Poly) = isLegal (mulX (prune p))
+let ``mulX preserves the invariant`` (p: Poly) = invarianceOnePoly mulX
 
 [<Property>]
 let ``mul preserves the invariant`` () = invarianceTwoPolys mul
 
+// Part 2 function tests
+[<Property>]
+let ``derivative preserves the invariant`` () = invarianceOnePoly derivative
 
 
 // Properties of a commutative ring
