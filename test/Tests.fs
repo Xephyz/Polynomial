@@ -7,13 +7,39 @@ open Poly
 open FsCheck
 open FsCheck.Xunit
 
-let one: Poly = [1]
-let zero: Poly = []
 
+// Preserving an invariant
+// The invariant being that all functions on polynomials should give legal polynomials if given legal polynomials
 
 [<Property>]
-let ``Legal property`` p = isLegal (prune p)
+let ``prune produces legal polynomials property`` p = isLegal (prune p)
 
+let invarianceTwoPolys op (p1: Poly) (p2: Poly) =
+    isLegal (op (prune p1) (prune p2))
+
+let invarianceOnePoly op (p: Poly) = isLegal (op (prune p))
+
+// Part 1 function tests
+[<Property>]
+let ``add preserves the invariant`` () = invarianceTwoPolys add
+
+[<Property>]
+let ``mulC preserves the invariant`` n (p: Poly) = isLegal (mulC n (prune p))
+
+[<Property>]
+let ``sub preserves the invariant`` () = invarianceTwoPolys sub
+
+[<Property>]
+let ``mulX preserves the invariant`` (p: Poly) = isLegal (mulX (prune p))
+
+[<Property>]
+let ``mul preserves the invariant`` () = invarianceTwoPolys mul
+
+
+
+// Properties of a commutative ring
+let one: Poly = [1]
+let zero: Poly = []
 
 let associative op (p1: Poly) (p2: Poly) (p3: Poly) =
     op (op p1 p2) p3 = op p1 (op p2 p3)
