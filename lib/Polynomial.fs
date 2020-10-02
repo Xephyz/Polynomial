@@ -56,7 +56,7 @@ let rec eval n (p: Poly) =
 
 // Moved 'isLegal' & 'prune' functions for Part 3
 
-let toString (p: Poly) =
+let toString p =
     let formatNum num power =
         match power with
         | 0 -> string num
@@ -86,7 +86,7 @@ let compose (p1: Poly) (p2: Poly): Poly =
         | [] -> []
         | x :: xs -> add (mulC x p2r) (composeRec xs (mul p2r p2))
 
-    add [ List.head p1 ] (composeRec (List.tail p1) p2)
+    if List.isEmpty p1 then p2 else add [ List.head p1 ] (composeRec (List.tail p1) p2)
     |> prune // <-- Part 3
 
 
