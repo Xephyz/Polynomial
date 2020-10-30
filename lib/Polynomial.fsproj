@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Types.fs" />
+    <Compile Include="Polynomial.fsi" />
     <Compile Include="Polynomial.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
