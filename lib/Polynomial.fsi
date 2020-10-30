@@ -22,3 +22,7 @@ val compose:    Poly -> Poly -> Poly
 // Part 4 functions
 val deg:        Poly -> Degree
 val addD:       Degree -> Degree -> Degree
+
+// Part 6 functions
+val ofList:     int list -> Poly
+val toList:     Poly -> int list
