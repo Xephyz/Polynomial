@@ -103,4 +103,6 @@ let addD d1 d2 =
     | (Fin x, Fin y) -> Fin(x + y)
 
 
-// Part 5: Correctness - property-based testing
+// Part 6: The library Polynomial
+let ofList xs = prune xs
+let toList (p: Poly)  = List.head p::List.tail p
